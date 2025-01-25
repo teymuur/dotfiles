@@ -16,6 +16,15 @@ tymr(){
 }
 alias teymur=tymr
 
+bi(){
+	
+echo -e "\e[48;2;245;70;150m                              \e[0m" # Pink (Line 1)
+echo -e "\e[48;2;245;70;150m                              \e[0m" # Pink (Line 2)
+echo -e "\e[48;2;145;60;140m                              \e[0m" # Purple
+echo -e "\e[48;2;10;50;160m                              \e[0m" # Blue (Line 1)
+echo -e "\e[48;2;10;50;160m                              \e[0m" # Blue (Line 2)
+
+}
 
 re(){
 history -c
@@ -27,7 +36,7 @@ clear && bash
 alias r=tart
 alias aww='brave https://search.brave.com/search?q=cute+cat+pics&source=desktop'
 alias lmao='~/jokes.sh'
-
+alias ram='watch -n 5 free -m'
 alias gpp=g++
 alias ass='/home/teymur/Documents/Projects/learnassembly/ass.sh'
 

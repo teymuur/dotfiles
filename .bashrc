@@ -124,7 +124,7 @@ export NVM_DIR="$HOME/.nvm"
 # Default ad LMAO
 tart(){
 clear
-fortune -n 150 | cowsay -f tux
+fortune -s | cowsay -f tux 
 
 echo -e " \e[5;41m GO TO TYMBB.COM \e[0m"
 

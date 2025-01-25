@@ -183,3 +183,5 @@ nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+
+let &t_SI="\<Esc>[5 q"
