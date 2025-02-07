@@ -124,11 +124,28 @@ export NVM_DIR="$HOME/.nvm"
 # Default ad LMAO
 tart(){
 clear
+
+current_hour=$(date +%H)
+
+user_name="Teymur"
+if [ $current_hour -ge 5 ] && [ $current_hour -lt 12 ]; then
+    greeting="Good Morning"
+elif [ $current_hour -ge 12 ] && [ $current_hour -lt 17 ]; then
+    greeting="Good Afternoon"
+elif [ $current_hour -ge 17 ] && [ $current_hour -lt 22 ]; then
+    greeting="Good Evening"
+else
+    greeting="Good Night"
+fi
+
+
+echo -e "\e[1;44m $greeting, $user_name \e[0m"
 fortune -s | cowsay -f tux 
 
-echo -e " \e[5;41m GO TO TYMBB.COM \e[0m"
+echo -e " \e[5;41m GO TO TYMBB.COM \e[0m\n"
 
-echo ""
+
+
 }
 
 tart
