@@ -235,5 +235,7 @@ require('lualine').setup {
 }
     
 EOF
-
 :set cmdheight=0
+
+
+set laststatus=2

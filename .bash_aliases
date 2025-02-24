@@ -31,9 +31,11 @@ history -w
 alias r=tart
 alias aww='brave https://search.brave.com/search?q=cute+cat+pics&source=desktop'
 alias lmao='~/jokes.sh'
-alias ram='watch -n 5 free -m'
-alias gpp=g++
-alias ass='/home/teymur/Documents/Projects/learnassembly/ass.sh'
+alias ram='htop'
+alias ass='bash /home/teymur/Documents/Projects/learnassembly/ass.sh'
+alias gpp='g++'
 alias ks='tmux kill-server'
 alias kys=ks
-alias kp='tmux kill-pane'
+alias kp='tmux kill-session'
+alias pp='cd ~/Documents/Projects'
+
