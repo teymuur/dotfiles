@@ -4,6 +4,10 @@ alias x=exit
 alias :q=exit
 alias c=clear
 
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 
 alias hii='python /home/teymur/hii.py'
 
@@ -20,7 +24,7 @@ re(){
 history -c
 history -w
 
-clear && bash
+clear && tart
 
 }
 forget(){
@@ -29,13 +33,13 @@ history -w
 }
 
 alias r=tart
-alias aww='brave https://search.brave.com/search?q=cute+cat+pics&source=desktop'
-alias lmao='~/jokes.sh'
+alias aww='brave-browser https://search.brave.com/search?q=cute+cat+pics&source=desktop'
+alias lmao='~/jokes.sh' # shitty jokes
 alias ram='htop'
 alias ass='bash /home/teymur/Documents/Projects/learnassembly/ass.sh'
 alias gpp='g++'
-alias ks='tmux kill-server'
-alias kys=ks
+alias {ks,kys}='tmux kill-server'
 alias kp='tmux kill-session'
 alias pp='cd ~/Documents/Projects'
-
+alias @='brave-browser https://mail.yahoo.com'
+alias f=fuck

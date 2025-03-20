@@ -17,7 +17,6 @@ syntax on
 set number
 set autoindent
 set mouse=a              
-set clipboard=unnamedplus
 set cursorline
 set encoding=utf-8
 set title
