@@ -2,7 +2,8 @@
 
 - tmux
 - neovim
-- neofetch
+- fastfetch(replaced neofetch because got deprecated)
+- zshell
 - bash
 - qBittorent
 
