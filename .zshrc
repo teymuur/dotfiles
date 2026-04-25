@@ -44,3 +44,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval $(thefuck --alias)
+export PATH="$HOME/.local/bin:$PATH"
+
+export PATH=$PATH:/home/teymur/.spicetify
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"

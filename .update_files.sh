@@ -3,9 +3,29 @@
 DIR=$(cd `dirname $0` && pwd)
 echo $DIR
 
+# Shell
 cp ~/.bashrc ${DIR}/.bashrc
 cp ~/.bash_aliases ${DIR}/.bash_aliases
+cp ~/.zshrc ${DIR}/.zshrc
+cp ~/.p10k.zsh ${DIR}/.p10k.zsh
+
+# Terminal multiplexer
 cp ~/.tmux.conf ${DIR}/.tmux.conf
-cp ~/.config/neofetch/config.conf ${DIR}/.config/neofetch/config.conf
-cp -r ~/.config/fastfetch/* ${DIR}/.config/fastfetch/
+
+# Editor
 cp ~/.config/nvim/init.vim ${DIR}/.config/nvim/init.vim
+
+# System info
+cp -r ~/.config/fastfetch/* ${DIR}/.config/fastfetch/
+
+# Sway/i3
+cp -r ~/.config/i3/* ${DIR}/.config/i3/
+
+# Waybar
+cp -r ~/.config/waybar/* ${DIR}/.config/waybar/
+
+# Rofi
+cp -r ~/.config/rofi/* ${DIR}/.config/rofi/
+
+# Kitty terminal
+cp ~/.config/kitty/kitty.conf ${DIR}/.config/kitty/kitty.conf
