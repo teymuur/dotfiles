@@ -1,0 +1,186 @@
+# set modifier
+set $super Mod4
+set $alt Mod1
+
+# monitor layout: HDMI-A-1 above eDP-1 (builtin)
+output HDMI-A-1 pos 0 0
+output eDP-1    pos 0 1080
+
+# wallpaper (sway native)
+output * bg ~/Pictures/fedora.png fill
+
+# natural scrolling via sway input (replaces xinput)
+input type:pointer {
+	natural_scroll disabled
+}
+input "type:touchpad" {
+    tap enabled
+    tap_button_map lrm
+    dwt disabled
+    dwtp enabled
+    natural_scroll enabled
+}   
+input "type:keyboard" {
+    xkb_layout us,ru,az
+    xkb_options grp:rctrl_toggle,caps:escape
+}
+# autostart
+exec wl-paste --watch cliphist store
+exec swayidle -w \
+	timeout 300 'swaylock --clock --indicator  -i ~/Pictures/fedora.png '\
+	before-sleep 'swaylock --clock --indicator  -i ~/Pictures/fedora.png'
+
+# set font
+# set font
+font pango:Ionicons 12, Poppins Regular 12
+exec_always /home/teymur/.config/i3/wsdnames.sh
+# use mouse+$super to drag floating windows
+floating_modifier $super normal
+exec systemctl --user import-environment DISPLAY   
+# start a terminal
+bindsym $super+Return exec kitty tmux
+
+# start rofi
+bindsym $super+d exec rofi -show drun -show-icons -icon-theme "Arc-X-D" 
+
+bindsym $super+shift+d exec rofi -show filebrowser
+# clipboard history (cliphist + rofi-wayland)
+bindsym $super+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
+# common apps keybinds
+bindsym Print exec grimshot savecopy area ~/Pictures/Screenshots/Screenshot-$(date +%d)-$(date +%m)-$(date +%y)_$(date +%T).png  
+
+bindsym $alt+Print exec grimshot copy area   
+
+bindsym $super+l exec swaylock --clock --indicator -i ~/Pictures/fedora.png
+bindsym $super+w exec brave-browser
+bindsym $super+e exec thunar
+
+# change volume and brightness
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && pkill -SIGRTMIN+11 i3blocks
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && pkill -SIGRTMIN+11 i3blocks
+bindsym Control exec pkill -SIGRTMIN+12 i3blocks
+
+# kill focused window
+bindsym $super+c kill
+bindsym $alt+F4 kill
+
+# change focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# suspend
+bindsym ctrl+$super+l exec systemctl suspend
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# split orientation
+bindsym $super+h split h
+bindsym $super+v split v
+bindsym $super+s layout toggle split
+
+# fullscreen
+bindsym $super+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+bindsym $super+Shift+space focus mode_toggle
+
+# switch to workspace
+bindsym $alt+Tab workspace next
+bindsym $alt+Shift+Tab workspace prev
+bindsym $super+1 workspace number 1
+bindsym $super+2 workspace number 2
+bindsym $super+3 workspace number 3
+bindsym $super+4 workspace number 4
+bindsym $super+5 workspace number 5
+bindsym $super+6 workspace number 6
+bindsym $super+7 workspace number 7
+bindsym $super+8 workspace number 8
+bindsym $super+9 workspace number 9
+bindsym $super+0 workspace number 10
+
+#rename workspace
+bindsym $super+comma exec sh -c 'swaymsg rename workspace to "$(swaymsg -t get_workspaces | jq -r ".[] | select(.focused) | .num"):$(dmenu -p "Rename:")"'
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace number 1
+bindsym $super+Shift+2 move container to workspace number 2
+bindsym $super+Shift+3 move container to workspace number 3
+bindsym $super+Shift+4 move container to workspace number 4
+bindsym $super+Shift+5 move container to workspace number 5
+bindsym $super+Shift+6 move container to workspace number 6
+bindsym $super+Shift+7 move container to workspace number 7
+bindsym $super+Shift+8 move container to workspace number 8
+bindsym $super+Shift+9 move container to workspace number 9
+bindsym $super+Shift+0 move container to workspace number 10
+
+# cycle HDMI position: above → right → below → left → above
+bindsym $super+p exec ~/.config/i3/cycle_monitor.sh
+
+# reload sway config
+bindsym $super+BackSpace exec swaymsg reload
+
+# exit sway
+bindsym $super+q exec swaynag -t warning -m 'YOU ARE MAKING A MISTAKE???? SOME THINGS DOESNT NEED TO END' -b 'Fuck u' 'swaymsg exit'
+
+# resize window
+mode "resize" {
+	bindsym Left resize shrink width 5 px or 5 ppt
+	bindsym Down resize grow height 5 px or 5 ppt
+	bindsym Up resize shrink height 5 px or 5 ppt
+	bindsym Right resize grow width 5 px or 5 ppt
+	bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+
+# scratchpad
+bindsym $super+minus scratchpad show
+bindsym $super+Shift+minus move scratchpad
+
+# panel
+bar {
+	status_command i3blocks -c ~/.config/i3blocks/config
+	position top
+	strip_workspace_numbers yes
+	font pango:Hack Nerd Font 11
+
+	colors {
+	background #282a36
+	statusline #f8f8f2
+	separator  #44475a
+
+	focused_workspace  #bd93f9 #bd93f9 #282a36
+	active_workspace   #44475a #44475a #f8f8f2
+	inactive_workspace #282a36 #282a36 #6272a4
+	urgent_workspace   #ff5555 #ff5555 #f8f8f2
+	}
+}
+
+# window colors
+client.focused          #bd93f9 #44475a #f8f8f2 #bd93f9 #bd93f9
+client.focused_inactive #44475a #44475a #f8f8f2 #44475a #44475a
+client.unfocused        #282a36 #282a36 #6272a4 #282a36 #282a36
+client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555 #ff5555
+client.placeholder      #282a36 #282a36 #f8f8f2 #282a36 #282a36
+client.background       #282a36
+
+# window rules — app_id for Wayland-native, class for XWayland
+for_window [app_id="mpv|vlc"] floating enable, focus
+for_window [class="Eog|Sxiv|feh|Vlc|File-roller|Xarchiver"] floating enable, focus
+default_border pixel 8
+hide_edge_borders smart
+gaps inner 3
+smart_gaps on
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

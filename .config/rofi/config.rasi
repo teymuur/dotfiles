@@ -1,0 +1,104 @@
+* {
+    bg:     #1e1f29;
+    fg:     #f8f8f2;
+    accent: #bd93f9;
+    dim:    #6272a4;
+
+    /* override rofi built-in variable defaults so nothing falls back to solarized */
+    background-color:            @bg;
+    text-color:                  @fg;
+    normal-background:           @bg;
+    normal-foreground:           @fg;
+    alternate-normal-background: @bg;
+    alternate-normal-foreground: @fg;
+    selected-normal-background:  @accent;
+    selected-normal-foreground:  @bg;
+    urgent-background:           @bg;
+    urgent-foreground:           #ff5555;
+    alternate-urgent-background: @bg;
+    alternate-urgent-foreground: #ff5555;
+    selected-urgent-background:  #ff5555;
+    selected-urgent-foreground:  @fg;
+    active-background:           @bg;
+    active-foreground:           @accent;
+    alternate-active-background: @bg;
+    alternate-active-foreground: @accent;
+    selected-active-background:  @accent;
+    selected-active-foreground:  @bg;
+}
+
+window {
+    background-color: @bg;
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    6px;
+    width:            500px;
+    padding:          12px;
+}
+
+mainbox {
+    background-color: @bg;
+ 
+    text-color:                  @fg;
+    spacing:          8px;
+}
+
+inputbar {
+    background-color: #282a36;
+    border-radius:    4px;
+    padding:          8px 12px;
+    children:         [prompt, entry];
+}
+case-indicator{
+    text-color:                  @fg;
+    normal-background:           @bg;
+}
+prompt {
+    text-color: @accent;
+    padding:    0 6px 0 0;
+}
+
+entry {
+    text-color:        @fg;
+    placeholder:       "Search...";
+    placeholder-color: @dim;
+}
+
+listview {
+    background-color: @bg;
+    lines:            8;
+    columns:          1;
+    spacing:          0px;
+}
+
+element {
+    background-color: @bg;
+    border-radius:    4px;
+    padding:          6px 10px;
+    text-color:       @fg;
+}
+
+element normal.normal {
+    background-color: @bg;
+    text-color:       @fg;
+}
+
+element alternate.normal {
+    background-color: @bg;
+    text-color:       @fg;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color:       @bg;
+}
+
+element-icon {
+    size:       20px;
+    text-color: inherit;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color:     inherit;
+}
