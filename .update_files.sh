@@ -9,12 +9,13 @@ cp ~/.bash_aliases ${DIR}/.bash_aliases
 cp ~/.zshrc ${DIR}/.zshrc
 cp ~/.p10k.zsh ${DIR}/.p10k.zsh
 
-# Terminal multiplexer
+# Tmux
 cp ~/.tmux.conf ${DIR}/.tmux.conf
 
 # Editor
 cp ~/.config/nvim/init.vim ${DIR}/.config/nvim/init.vim
 
+cp ~/.config/nvim/lua/* ${DIR}/.config/nvim/lua/
 # System info
 cp -r ~/.config/fastfetch/* ${DIR}/.config/fastfetch/
 

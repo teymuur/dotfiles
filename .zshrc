@@ -1,3 +1,5 @@
+source /home/teymur/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 tart(){
 clear
 
@@ -30,12 +32,12 @@ bindkey ";3D" backward-word
 
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
+bindkey "^[[3~" delete-char
 # End of lines added by compinstall
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
 
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -48,3 +50,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PATH=$PATH:/home/teymur/.spicetify
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$HOME/bin:$PATH"
