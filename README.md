@@ -9,6 +9,7 @@ Desktop dracula [wallpaper](https://github.com/dracula/wallpaper/blob/master/fir
 neofetch (also there is a goku logo but removed that cause didnt work in kitty)
 ![rofi](images/rofi.png)
 <br> rofi drun app launcher
+<<<<<<< HEAD
 ## Requirements
 
 | Package | Needed for |
@@ -31,6 +32,8 @@ neofetch (also there is a goku logo but removed that cause didnt work in kitty)
 | Hack Nerd Font, Poppins, Ionicons | Waybar / sway fonts |
 | `whiptail` or `dialog` | `install.sh` TUI |
 
+=======
+>>>>>>> 9db605164ed4e826ac6d4b13b029949dc3b68409
 ## Contents
 
 | Config | Path |
@@ -107,6 +110,7 @@ neofetch (also there is a goku logo but removed that cause didnt work in kitty)
 
 These are highly personal you'll need to edit them before use especially `.bashrc` and `.bash_aliases` (paths, usernames, aliases).
 
+<<<<<<< HEAD
 To install configs interactively (requires `whiptail` or `dialog`):
 
 ```bash
@@ -115,6 +119,8 @@ To install configs interactively (requires `whiptail` or `dialog`):
 
 Existing files are backed up as `*.bak` before overwriting.
 
+=======
+>>>>>>> 9db605164ed4e826ac6d4b13b029949dc3b68409
 To sync your own configs into this repo run:
 
 ```bash

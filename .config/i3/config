@@ -22,7 +22,7 @@ input "type:touchpad" {
 }   
 input "type:keyboard" {
     xkb_layout us,ru,az
-    xkb_options grp:rctrl_toggle,caps:escape
+    xkb_options grp:alt_shift_toggle,caps:escape
 }
 # autostart
 exec wl-paste --watch cliphist store
@@ -39,21 +39,24 @@ floating_modifier $super normal
 exec systemctl --user import-environment DISPLAY   
 # start a terminal
 bindsym $super+Return exec kitty tmux
-
+exec xrandr --output eDP-1 --primary
 # start rofi
 bindsym $super+d exec rofi -show drun -show-icons -icon-theme "Arc-X-D" 
 
 bindsym $super+shift+d exec rofi -show filebrowser
 # clipboard history (cliphist + rofi-wayland)
 bindsym $super+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
-
+#emoji
+bindsym $super+m exec rofimoji
+#battery alert
+exec bash ~/.config/i3/battery.sh &
 # common apps keybinds
 bindsym Print exec grimshot savecopy area ~/Pictures/Screenshots/Screenshot-$(date +%d)-$(date +%m)-$(date +%y)_$(date +%T).png  
 
 bindsym $alt+Print exec grimshot copy area   
 
 bindsym $super+l exec swaylock --clock --indicator -i ~/Pictures/fedora.png
-bindsym $super+w exec brave-browser
+bindsym $super+w exec brave-origin-nightly
 bindsym $super+e exec thunar
 
 # change volume and brightness
@@ -94,6 +97,7 @@ bindsym $super+f fullscreen toggle
 # toggle tiling / floating
 bindsym $super+space floating toggle
 bindsym $super+Shift+space focus mode_toggle
+bindsym $alt+space sticky toggle
 
 # switch to workspace
 bindsym $alt+Tab workspace next

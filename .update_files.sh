@@ -16,14 +16,14 @@ cp ~/.tmux.conf ${DIR}/.tmux.conf
 cp ~/.config/nvim/init.vim ${DIR}/.config/nvim/init.vim
 
 cp -r ~/.config/nvim/lua/* ${DIR}/.config/nvim/lua/
-
 cp -r ~/.config/nvim/autoload/* ${DIR}/.config/nvim/autoload/
+cp -r ~/.config/nvim/lua/* ${DIR}/.config/nvim/lua/
 # System info
 cp -r ~/.config/fastfetch/* ${DIR}/.config/fastfetch/
 
 # Sway/i3
 cp -r ~/.config/i3/* ${DIR}/.config/i3/
-
+cp -r ~/.config/i3blocks/* ${DIR}/.config/i3blocks/
 # Waybar
 cp -r ~/.config/waybar/* ${DIR}/.config/waybar/
 
